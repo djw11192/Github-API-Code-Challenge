@@ -10,3 +10,15 @@ angular.module('github-api', ['ui.router'])
         templateUrl: 'templates/search.html'
       })
     })
+
+  .controller('SearchController', SearchController)
+
+  SearchController.$inject = ['$http']
+
+  function SearchController($http){
+    var vm = this
+
+    vm.search = function(){
+      $http.post('/api/contact', JSON.stringify(vm.newMessage))
+    }
+  }
