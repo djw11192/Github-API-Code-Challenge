@@ -16,9 +16,21 @@ angular.module('github-api', ['ui.router'])
   SearchController.$inject = ['$http']
 
   function SearchController($http){
-    var vm = this
+    var vm = this;
+
 
     vm.search = function(){
-      $http.post('/api/contact', JSON.stringify(vm.newMessage))
+      var userInput = vm.newSearch
+      console.log(userInput);
+      $http({
+        method: 'GET',
+        url: 'https://api.github.com/search/repositories?q='+userInput
+      }).then(function(response) {
+          console.log(response)
+
+        }, function errorCallback(response) {
+          // called asynchronously if an error occurs
+          // or server returns response with an error status.
+        });
     }
   }
