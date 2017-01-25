@@ -1,21 +1,24 @@
-<div ng-controller="SearchController as sc">
-
-  <input ng-model="sc.newSearch">
-  <button ng-click="sc.search()">Search</button>
-
-  <div ng-repeat="repo in sc.repos | limitTo:10">
-    <ol>
-      <li>
-        <h5>{{repo.name}}</h5>
-
-        <ul>
-          <li>User: {{repo.owner.login}}</li>
-          <li>Created Data: {{repo.created_at}}</li>
-          <li>URL: {{repo.html_url}}</li>
-        </ul>
-      </li>
-
-    </ol>
+<div ng-controller="SearchController as sc" class="container">
+  <div class="searchBar">
+    <input ng-model="sc.newSearch" class="form">
+    <button ng-click="sc.search()" class="btn btn-primary">Search</button>
   </div>
+
+  <ol>
+    <div ng-repeat="repo in sc.repos | limitTo:10">
+
+        <li>
+          <h5>{{repo.name}}</h5>
+
+          <ul>
+            <li>User: {{repo.owner.login}}</li>
+            <li>Created Data: {{repo.created_at}}</li>
+            <li>URL: {{repo.html_url}}</li>
+          </ul>
+        </li>
+
+
+    </div>
+  </ol>
 
 </div>
