@@ -1,1 +1,32 @@
-<h1>Search</h1>
+<div ng-controller="SearchController as sc" class="container">
+  <div class="searchBar">
+    <input ng-model="sc.newSearch" class="form" placeholder="Search Github Repositories">
+    <button ng-click="sc.search()" class="btn btn-primary">Search</button>
+
+        Sort By:
+    <select ng-model="repoOrder">
+      <option value="name">Name</option>
+      <option value="owner.login">Owner</option>
+      <option value="created_at">Date</option>
+      <option value="html_url">URL</option>
+    </select>
+  </div>
+
+  <ol>
+    <div ng-repeat="repo in sc.repos | limitTo:10 | orderBy:repoOrder">
+
+        <li>
+          <h5>{{repo.name}}</h5>
+
+          <ul>
+            <li>Owner: {{repo.owner.login}}</li>
+            <li>Created Date: {{repo.created_at}}</li>
+            <li>URL: {{repo.html_url}}</li>
+          </ul>
+        </li>
+
+
+    </div>
+  </ol>
+
+</div>
