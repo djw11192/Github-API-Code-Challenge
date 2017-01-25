@@ -26,11 +26,10 @@ angular.module('github-api', ['ui.router'])
         method: 'GET',
         url: 'https://api.github.com/search/repositories?q='+userInput
       }).then(function(response) {
-          console.log(response)
-
-        }, function errorCallback(response) {
-          // called asynchronously if an error occurs
-          // or server returns response with an error status.
+        var reposArray = response.data.items
+          console.log(reposArray)
+        }, function(err) {
+          console.log(err)
         });
     }
   }
