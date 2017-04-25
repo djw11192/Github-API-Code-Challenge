@@ -1,6 +1,6 @@
-#Github API Code Challenge
+# Github API Code Challenge #
 
-###To see my work you can run the following commands in your terminal:
+### To see my work you can run the following commands in your terminal: ###
 
 1. $ git clone https://github.com/djw11192/Github-API-Code-Challenge.git
 2. $ cd Github-API-Code-Challenge
